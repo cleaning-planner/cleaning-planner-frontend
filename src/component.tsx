@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 
 const Component = () => {
     return (
-        <Fragment>test</Fragment>
+        <Fragment>test component</Fragment>
     );
 };
 
