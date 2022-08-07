@@ -1,0 +1,28 @@
+name: Run tests
+on:
+  push:
+    branches:
+      - 'main'
+      - 'dev'
+      - 'feature/**'
+      - 'bugfix/**'
+
+jobs:
+  Run-Tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn test
+        env:
+          CI: true
